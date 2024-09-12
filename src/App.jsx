@@ -1,13 +1,14 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
 import Layout from './components/Layers/Main/Layout';
+import Adan from './components/pages/adan/Adan';
 
 function App() {
   return (
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="" element={<div className='center' > الصفحة الرئيسية </div>} />
-          <Route path="adan" element={<div className='center' > مواقيت الصلاة </div>} />
+          <Route path="adan" element={ <Adan /> } />
           <Route path="quran" element={<div className='center' > القرآن الكريم </div>} />
           <Route path="hadith" element={<div className='center' > الأحاديث النبوية </div>} />
           <Route path="doros" element={<div className='center' > الدروس و الفتاوى </div>} />
