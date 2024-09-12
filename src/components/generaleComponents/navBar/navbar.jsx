@@ -2,6 +2,7 @@ import { useState } from "react"
 import "./navbar_style.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCoffee, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
 
@@ -24,53 +25,48 @@ export default function Navbar() {
     return(
         <header className="header" >
             <nav className="nav container">
-                <a className="nav__logo" >عبادتي</a>
+                <Link to={"/"} className="nav__logo" >عبادتي</Link>
                 <div className={toggle ? "nav__menu show-menu" : "nav__menu"}>
                     <ul className="nav__list grid">
 
+                        <li className="nav__item" onClick={() => { setActiveLink("acceuil") }}>
+                            <Link to={"/"} className={activeLink === "acceuil" ? "nav__link active-link" : "nav__link" } >
+                                الصفحة الرئيسية
+                            </Link>
+                        </li>
+
                         <li className="nav__item" onClick={() => { setActiveLink("home") }}>
-                            <a  className={activeLink === "home" ? "nav__link active-link" : "nav__link" } >
-                                <i className="uil uil-estate nav__icon"></i>
-                                
+                            <Link to={"/adan"} className={activeLink === "home" ? "nav__link active-link" : "nav__link" } >
                                 مواقيت الصلاة
-                            </a>
+                            </Link>
                         </li>
 
                         <li className="nav__item" onClick={() => { setActiveLink("about") }}>
-                            <a   className={activeLink === "about" ? "nav__link active-link" : "nav__link" }>
-                                <i className="uil uil-user nav__icon"></i> 
+                            <Link  to={"/quran"} className={activeLink === "about" ? "nav__link active-link" : "nav__link" }>
                                 القرآن الكريم
-                            </a>
+                            </Link>
                         </li>
 
                         <li className="nav__item" onClick={() => { setActiveLink("skills") }}>
-                            <a  className={activeLink === "skills" ? "nav__link active-link" : "nav__link" } >
-                                <i className="uil uil-file-alt nav__icon"></i>
+                            <Link to={"/hadith"} className={activeLink === "skills" ? "nav__link active-link" : "nav__link" } >
                                  الأحاديث النبوية
-                            </a>
+                            </Link>
                         </li>
 
                         <li className="nav__item" onClick={() => { setActiveLink("Services") }}>
-                            <a  className={activeLink === "Services" ? "nav__link active-link" : "nav__link" }>
-                                <i className="uil uil-briefcase nav__icon"></i>
+                            <Link to={"/doros"} className={activeLink === "Services" ? "nav__link active-link" : "nav__link" }>
                                 الدروس و الفتاوى
-                            </a>
+                            </Link>
                         </li>
 
                         <li className="nav__item" onClick={() => { setActiveLink("Portfolio") }}>
-                            <a  className={activeLink === "Portfolio" ? "nav__link active-link" : "nav__link" }>
-                                <i className="uil uil-scenery nav__icon"></i>
+                            <Link to={'/contact'} className={activeLink === "Portfolio" ? "nav__link active-link" : "nav__link" }>
                                 تواصل معنا
-                            </a>
+                            </Link>
                         </li>
 
                     </ul>
 
-                    <i className="uil uil-times nav__close" 
-                    onClick={()=>{
-                        setToggle(!toggle)
-                    }}
-                    ></i>
 
                     <FontAwesomeIcon className="uil uil-times nav__close" onClick={ () => { setToggle(!toggle) } } icon={faXmark} />
                 </div>

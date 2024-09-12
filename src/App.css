@@ -91,3 +91,17 @@ button {
   outline: none;
 }
 
+body {
+  background-color: var(--body-color)
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  color: white;
+  font-size: 5rem;
+}
