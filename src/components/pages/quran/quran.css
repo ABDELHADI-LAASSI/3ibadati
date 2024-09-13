@@ -1,0 +1,21 @@
+.quran_content {
+    display: flex;
+    column-gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.quran {
+    height: 100vh;
+}
+.quran_content img {
+    height: 800px;
+    width: 700px;
+}
+
+
+.icon_quran {
+    font-size: 3rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
