@@ -3,9 +3,10 @@ import "./adan.css"
 
 const Adan = () => {
 
-    const [city , setCity] = useState("Fes")
+    const [city , setCity] = useState("فاس")
     const [time , setTime] = useState({})
     const [arabicDate , setArabicDate] = useState({})
+    const [loading , setLoading] = useState(false)
 
     const handleChange = (e) => {
         setCity(e.target.value)
@@ -14,6 +15,8 @@ const Adan = () => {
     useEffect( () => {
         
         const fetchData = async () => {
+
+            setLoading(true)
             try {
                 const res = await fetch(`https://api.aladhan.com/v1/timingsByCity?city=${city}&country=Morocco&method=3`)
                 const data = await res.json()
@@ -21,6 +24,7 @@ const Adan = () => {
                 if (data.data) {
                     setTime(data.data.timings)
                     setArabicDate(data.data.date.hijri)
+                    setLoading(false)
                 }
                 
             } catch (error) {
@@ -32,15 +36,22 @@ const Adan = () => {
 
     } , [city])
 
+
+    if (loading) {
+        return (
+            <div className="loading">
+                <h1>Loading...</h1>
+            </div>
+        )
+    }
+
   return (
     <div className="adan">
         <div className="container">
 
             <div className="section">
 
-                <div className="title">
-                <h1>مواقيت الصلاة في {city}</h1>
-                </div>
+                <h1 className='title'>مواقيت الصلاة في مدينة  {city}</h1>
 
                 {/* Display Arabic Date */}
                 <div className="date">
