@@ -1,17 +1,26 @@
 .quran_content {
-    display: flex;
-    column-gap: 2rem;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+}
+
+@media screen and (max-width: 1280px) {
+    .quran_content {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .quran_content {
+        grid-template-columns: repeat(1,1fr);
+    }
 }
 
 .quran {
     height: 100vh;
 }
-.quran_content img {
-    height: 800px;
-    width: 700px;
-}
+
 
 
 .icon_quran {
@@ -23,4 +32,14 @@
 
 .button_quran_icon {
     background: transparent;
+}
+
+.aya_container {
+    background-color: var(--container-color);
+    color: var(--text-color);
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: space-between;
 }
