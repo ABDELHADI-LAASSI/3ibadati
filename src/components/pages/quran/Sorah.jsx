@@ -40,7 +40,7 @@ const Sorah = () => {
                 <p>{sorah}</p>
                 <audio controls>
                   <source 
-                    src={`https://quranaudio.pages.dev/1/2_1.mp3`} 
+                    src={`https://quranaudio.pages.dev/1/${id}_${index + 1}.mp3`} 
                     type="audio/mpeg" // Change to "audio/mpeg" if your files are MP3
                   />
                   Your browser does not support the audio element.

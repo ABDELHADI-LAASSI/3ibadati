@@ -41,10 +41,7 @@ const Quran = () => {
       <div className="container">
         <div className="section">
           <h1 className='title'>صفحة القرآن الكريم</h1>
-          <audio controls>
-              <source src="https://quranaudio.pages.dev/2/3_4.mp3" type="audio/ogg" />
-              Your browser does not support the audio element.
-          </audio> 
+          
 
           <div className="quran_content">
                 {
