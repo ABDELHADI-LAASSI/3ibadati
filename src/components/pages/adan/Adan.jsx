@@ -3,10 +3,18 @@ import "./adan.css"
 
 const Adan = () => {
 
-    const [city , setCity] = useState("فاس")
+    const [city , setCity] = useState("الدار البيضاء")
     const [time , setTime] = useState({})
     const [arabicDate , setArabicDate] = useState({})
     const [loading , setLoading] = useState(false)
+
+    const data = [
+        {
+            id: 1,
+            name: "الدار البيضاء",
+            apiName : "casaBlanca"
+        }
+    ]
 
     const handleChange = (e) => {
         setCity(e.target.value)
@@ -35,15 +43,6 @@ const Adan = () => {
         fetchData()
 
     } , [city])
-
-
-    if (loading) {
-        return (
-            <div className="loading">
-                <h1>Loading...</h1>
-            </div>
-        )
-    }
 
   return (
     <div className="adan">
