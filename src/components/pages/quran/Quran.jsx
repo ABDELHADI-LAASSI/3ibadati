@@ -90,7 +90,7 @@ const Quran = () => {
             />
 
             {sorah.length > 0 && (
-              <select onChange={(e) => handleSorahChange(parseInt(e.target.value))} value={index}>
+              <select onChange={(e) => handleSorahChange(parseInt(e.target.value))} >
                 {sorah.map(s => (
                   <option key={s.page} value={s.start_page}>
                     {s.name}

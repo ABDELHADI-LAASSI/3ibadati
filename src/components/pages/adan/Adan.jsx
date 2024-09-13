@@ -52,6 +52,7 @@ const Adan = () => {
 
                 <h1 className='title'>مواقيت الصلاة في مدينة  {city}</h1>
 
+
                 {/* Display Arabic Date */}
                 <div className="date">
                     <h5>التاريخ : {arabicDate.day} / {arabicDate.month?.ar} / {arabicDate.year}</h5>
