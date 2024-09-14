@@ -22,7 +22,7 @@
   --red: #f44336;
   --grey: #888;
 
-
+  
 }
 
 /* Responsive typography */
@@ -44,6 +44,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Cairo", system-ui;
+  scroll-behavior: smooth;
 }
 
 /* ============== Layout =============== */

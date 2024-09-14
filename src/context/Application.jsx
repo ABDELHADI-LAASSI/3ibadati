@@ -3,12 +3,18 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ApplicationStateContext = createContext({
-    testVar: 'test',
+    tafsirAyah: '',
+    setTafsirAya : () => {},
 });
 
 export function ApplicationContext({ children }) {
-    // functions
-    const [testVar, setTestVar] = useState('test');
+    
+    const [tafsirAyah , setTafsirAya] = useState()
+
+
+
+
+
 
 
     return (
@@ -16,8 +22,8 @@ export function ApplicationContext({ children }) {
         
             //  define states here to be used in components and functions
 
-            testVar,
-            setTestVar
+            tafsirAyah,
+            setTafsirAya
 
         }}>
             {children}

@@ -19,9 +19,9 @@
 }
 .nav__logo,
 .nav__toogle {
-    color: var(--title-color);
+    color: var(--green);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
 }
 
