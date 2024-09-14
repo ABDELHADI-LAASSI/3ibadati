@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap');
+
 .quran_content {
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -42,4 +44,96 @@
     align-items: center;
     border-radius: 5px;
     justify-content: space-between;
+}
+
+
+.play , .pause , .tafsir{
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: var(--grey);
+}
+
+.sorah-item {
+    background-color: var(--container-color);
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 50px;
+
+
+}
+
+
+.sorah-item .ayah{
+    font-family: "Amiri Quran", serif;
+    font-size: 30px;
+    color: var(--grey);
+}
+
+
+.surahInfos {
+    display: grid;
+    grid-template-columns: 1fr 15%;
+    column-gap: 2rem    ;
+}
+
+.ayahinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.surahInfos .btns {
+    display: grid;
+}
+
+
+.suwar_sidebar_container {
+    background-color: var(--container-color);
+    display: grid;
+    grid-template-columns: 50%  50% ;
+    padding: 1rem;
+}
+
+.suwar_sidebar {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+.suwar_sidebar_container h2 {
+    text-align: center;
+    font-family: "Amiri Quran", serif;
+    color: var(--title-color);
+}
+.sorah {
+    background-color: transparent;
+    padding: .5rem 1rem ;
+    display: grid;
+    place-items: center;
+    color: var(--container-color);
+    transition: .3s;
+    background-color: var(--grey);
+    border-radius: 15px;
+}
+
+.ayat {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    align-items: center;
+}
+
+.ayat p {
+    background-color: transparent;
+    padding: .5rem 1rem ;
+    display: grid;
+    place-items: center;
+    color: var(--container-color);
+    transition: .3s;
+    background-color: var(--grey);
+    border-radius: 15px;
+}
+
+.active {
+    background-color: var(--blue);
 }
