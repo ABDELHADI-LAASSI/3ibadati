@@ -5,11 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const ApplicationStateContext = createContext({
     tafsirAyah: '',
     setTafsirAya : () => {},
+    currentSorah : 1,
+    setCurrentSorah : () => {}
 });
 
 export function ApplicationContext({ children }) {
     
     const [tafsirAyah , setTafsirAya] = useState()
+    const [currentSorah , setCurrentSorah] = useState(1)
 
 
 
@@ -23,7 +26,10 @@ export function ApplicationContext({ children }) {
             //  define states here to be used in components and functions
 
             tafsirAyah,
-            setTafsirAya
+            setTafsirAya,
+
+            currentSorah,
+            setCurrentSorah
 
         }}>
             {children}

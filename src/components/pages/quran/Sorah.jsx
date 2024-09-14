@@ -16,13 +16,12 @@ const Sorah = () => {
   const [showTafsir , setShowTafsir] = useState(false)
   const audioRefs = useRef([]);
 
-  const {tafsirAyah,setTafsirAya} = useApplication()
+  const {tafsirAyah,setTafsirAya,setCurrentSorah} = useApplication()
 
 
   useEffect(()=>{
-    console.log(tafsirAyah);
-    
-  },[tafsirAyah])
+    setCurrentSorah(+id)
+  },[id])
 
   useEffect(() => {
     const fetchData = async () => {

@@ -16,11 +16,12 @@
     padding: 2rem;
     z-index: 6;
     border-radius: 5px;
+    overflow-y: scroll;
 }
 
 .tafasir_buttons {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
     gap: 1rem;
     padding: 1rem 0
 }
@@ -38,4 +39,33 @@
 .tafasir_buttons button:hover {
     background-color: var(--blue);
     color: white;
+}
+
+.tafsir_text {
+    overflow-y: scroll;
+    position: relative;
+    height: inherit;
+}
+
+.tafsir_text h4 {
+    font-size: 30px;
+    margin: 1rem 0;
+}
+
+.tafsir_p {
+    font-family: "Amiri Quran", serif;
+    font-size: 25px;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.activeTafsirButton {
+    background-color: var(--blue) !important;
+    color: white !important;
 }
