@@ -166,3 +166,86 @@
 .active_sorah_link {
     background-color: var(--green);
 }
+
+.search_by_sorah {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 100%;
+    background-color: var(--container-color);
+    position: relative;
+    height: fit-content;
+    padding: 3rem 1rem 1rem 0;
+    margin: 1rem auto;
+    border-radius: 5px;
+}
+
+.search_by_sorah ul {
+    max-height: 300px;;
+    overflow-y: scroll;
+}
+
+.search_by_sorah ul li {
+    padding: 5px 0;
+}
+
+.search_by_sorah ul li .link_search {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.search_by_sorah ul li .link_search:hover {
+    color: var(--title-color);
+}
+
+.search_by_sorah .input_search {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+
+.search_by_sorah .input_search input {
+    width: 100%;
+    padding: 0rem 1rem .5rem 2.5rem;
+    border: none;
+    border-bottom: 2px solid var(--blue);
+}
+
+.search_by_sorah .input_search input:focus {
+    box-shadow: none;
+    outline: none !important;
+}
+
+.search_icon {
+    position: absolute;
+    left: 12px;
+    top: 11px;
+    color: var(--blue);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 1280px) {
+    .suwar_sidebar_container {
+        display: none;
+    }
+
+    .surahInfos {
+        grid-template-columns: 1fr;
+    }
+}
+
+.search_mobile {
+    margin-bottom: 2rem;
+}
+
+.search_mobile select {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: center;
+}

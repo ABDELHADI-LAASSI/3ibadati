@@ -2,7 +2,7 @@ import { faBookOpenReader, faPause, faPlay } from '@fortawesome/free-solid-svg-i
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useEffect, useState, useRef } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useApplication } from '../../../context/Application';
 import TafsirModal from '../../generaleComponents/tafsir_ayah/TafsirModal';
 
@@ -18,6 +18,8 @@ const Sorah = () => {
   const ayahRefs = useRef([]); // New ref for Ayah elements
 
   const { tafsirAyah, setTafsirAya, setCurrentSorah } = useApplication();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCurrentSorah(+id);
@@ -95,6 +97,11 @@ const Sorah = () => {
     setShowTafsir(true);
   };
 
+  const toSorah = (id) => {
+    navigate(`/quran/${id}`);
+    setCurrentSorah(+id);
+  }
+
   if (loading || loadingSorah) {
     return <div className='loading'>Loading...</div>;
   }
@@ -106,6 +113,18 @@ const Sorah = () => {
       <div className="container">
         <div className="section">
           <h1 className='title'>{sorahText.surahNameArabicLong}</h1>
+
+          <div className="search_mobile">
+            <select onChange={ e  => toSorah(e.target.value)}  >
+                <option value=""> {sorahText.surahNameArabicLong} </option>
+                {sorah?.map((sorah_item, index) => (
+                  <option value={index + 1} name="" id="">  
+                    {sorah_item.surahNameArabicLong}
+                  </option>
+                ))}
+              
+            </select>
+          </div>
 
           <div className="surahInfos">
             <div className='sorah_content'>
