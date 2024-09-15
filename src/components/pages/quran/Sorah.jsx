@@ -13,15 +13,15 @@ const Sorah = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [currentAyah, setCurrentAyah] = useState(null);
-  const [showTafsir , setShowTafsir] = useState(false)
+  const [showTafsir, setShowTafsir] = useState(false);
   const audioRefs = useRef([]);
+  const ayahRefs = useRef([]); // New ref for Ayah elements
 
-  const {tafsirAyah,setTafsirAya,setCurrentSorah} = useApplication()
+  const { tafsirAyah, setTafsirAya, setCurrentSorah } = useApplication();
 
-
-  useEffect(()=>{
-    setCurrentSorah(+id)
-  },[id])
+  useEffect(() => {
+    setCurrentSorah(+id);
+  }, [id]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,6 +64,11 @@ const Sorah = () => {
       }
     });
 
+    // Scroll to the current Ayah
+    if (ayahRefs.current[index]) {
+      ayahRefs.current[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
     // Play the selected ayah
     setCurrentAyah(index);
     if (audioRefs.current[index]) {
@@ -86,9 +91,9 @@ const Sorah = () => {
   };
 
   const handleTafsirIconClick = (ayah) => {
-    setTafsirAya(ayah)
-    setShowTafsir(true)
-  }
+    setTafsirAya(ayah);
+    setShowTafsir(true);
+  };
 
   if (loading || loadingSorah) {
     return <div className='loading'>Loading...</div>;
@@ -96,12 +101,7 @@ const Sorah = () => {
 
   return (
     <div className='sorah_page'>
-
-
-      {
-        tafsirAyah ? <TafsirModal /> : ""
-      }
-
+      {tafsirAyah ? <TafsirModal /> : ''}
 
       <div className="container">
         <div className="section">
@@ -115,13 +115,13 @@ const Sorah = () => {
                   className={`sorah-item ${currentAyah === index ? 'active' : ''}`} // Conditionally add 'active' class
                   style={{ marginBottom: '10px' }}
                   id={`sorah-${index + 1}`}
+                  ref={(el) => (ayahRefs.current[index] = el)} // Store refs for each Ayah element
                 >
                   <div className="ayahinfo">
                     <h3>الاية رقم {index + 1}</h3>
                     <p className='ayah'>{sorah}</p>
                   </div>
 
-                  {/* Conditionally render Play or Pause button */}
                   <div className='btns' style={{ marginBottom: '10px' }}>
                     {currentAyah === index ? (
                       <button onClick={() => handleStopAyah(index)} className='pause'>
@@ -138,7 +138,6 @@ const Sorah = () => {
                     </button>
                   </div>
 
-                  {/* Hidden audio element for each Ayah */}
                   <audio
                     ref={(el) => (audioRefs.current[index] = el)} // Store refs in the array
                     preload="none"

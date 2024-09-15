@@ -11,7 +11,7 @@ const TafsirModal = () => {
 
     const [tafsirText , setTafsirText] = useState([])
     const [loading , setLoading] = useState(true)
-    const [tafsirId , setTafsirId] = useState(4)
+    const [tafsirId , setTafsirId] = useState('ar-tafsir-al-tabari')
 
 
     useEffect(()=>{
@@ -21,7 +21,9 @@ const TafsirModal = () => {
     
             try {
     
-                const res = await axios.get(`http://api.quran-tafseer.com/tafseer/${tafsirId}/${currentSorah}/${tafsirAyah}`)
+                const res = await axios.get(`https://cdn.jsdelivr.net/gh/spa5k/tafsir_api@main/tafsir/${tafsirId}/${currentSorah}/${tafsirAyah}.json`)
+                console.log(res.data);
+                
                 setTafsirText(res.data.text)
     
             } catch (error) {
@@ -36,7 +38,7 @@ const TafsirModal = () => {
         }
 
         fetchTafsirAyah()
-    },[tafsirId ])
+    },[tafsirId, tafsirAyah, currentSorah ])
 
     const handleTafsirId = (id) => {
         setTafsirId(id)
@@ -47,21 +49,21 @@ const TafsirModal = () => {
         <div onClick={() => setTafsirAya(false)} className='tafsir_Modal'>
             <div className="tafirModelConte" onClick={(e) => e.stopPropagation()} >
                 <div className="tafasir_buttons">
-                    <button className={tafsirId == 4 ? 'activeTafsirButton' : ''}  disabled={loading ? true : false}  onClick={ () => handleTafsirId(4) } > تفسير ابن كثير </button>
-                    <button className={tafsirId == 8 ? 'activeTafsirButton' : ''}  disabled={loading ? true : false}  onClick={ () => handleTafsirId(8) } > تفسير الطبري </button>
-                    <button className={tafsirId == 1 ? 'activeTafsirButton' : ''}  disabled={loading ? true : false}  onClick={ () => handleTafsirId(1) } > التفسير الميسر </button>
-                    <button className={tafsirId == 2 ? 'activeTafsirButton' : ''}  disabled={loading ? true : false}  onClick={ () => handleTafsirId(2) } > تفسير الجلالين </button>
-                    <button className={tafsirId == 3 ? 'activeTafsirButton' : ''}  disabled={loading ? true : false}  onClick={ () => handleTafsirId(3) } > تفسير السعدي </button>
-                    <button className={tafsirId == 5 ? 'activeTafsirButton' : ''}  disabled={loading ? true : false}  onClick={ () => handleTafsirId(5) } > تفسير الوسيط لطنطاوي </button>
-                    <button className={tafsirId == 6 ? 'activeTafsirButton' : ''}  disabled={loading ? true : false}  onClick={ () => handleTafsirId(6) } > تفسير البغوي </button>
-                    <button className={tafsirId == 7 ? 'activeTafsirButton' : ''}  disabled={loading ? true : false}  onClick={ () => handleTafsirId(7) } > تفسير القرطبي </button>
+                    <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafsir-ibn-kathir') }  className={tafsirId == 'ar-tafsir-ibn-kathir' ? 'activeTafsirButton' : ''} > تفسير ابن كثير </button>
+                    <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafsir-al-tabari') }  className={tafsirId == 'ar-tafsir-al-tabari' ? 'activeTafsirButton' : ''} > تفسير الطبري </button>
+                    <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafsir-muyassar') }  className={tafsirId == 'ar-tafsir-muyassar' ? 'activeTafsirButton' : ''} > التفسير الميسر </button>
+                    <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafseer-al-saddi') }  className={tafsirId == 'ar-tafseer-al-saddi' ? 'activeTafsirButton' : ''} > تفسير السعدي </button>
+                    <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafsir-al-wasit') }  className={tafsirId == 'ar-tafsir-al-wasit' ? 'activeTafsirButton' : ''} > تفسير الوسيط لطنطاوي </button>
+                    <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafsir-al-baghawi') }  className={tafsirId == 'ar-tafsir-al-baghawi' ? 'activeTafsirButton' : ''} > تفسير البغوي </button>
+                    <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafseer-al-qurtubi') }  className={tafsirId == 'ar-tafseer-al-qurtubi' ? 'activeTafsirButton' : ''} > تفسير القرطبي </button>
+                    <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('en-tafisr-ibn-kathir') }  className={tafsirId == 'en-tafisr-ibn-kathir' ? 'activeTafsirButton' : ''} > Tafsir Ibn Kathir </button>
                 </div>
 
                 <div className="tafsir_text">
                     <h4> تفسير الآية </h4>
                     <p className='tafsir_p' >
                         {
-                            loading ? <FontAwesomeIcon className='spinner' icon={faSpinner} /> : tafsirText
+                            loading ? <FontAwesomeIcon className='spinner' icon={faSpinner} /> : tafsirText || 'Unable to load tafsir text'
                         }
                     </p>
                 </div>

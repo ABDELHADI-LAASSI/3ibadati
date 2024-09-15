@@ -16,7 +16,7 @@
     padding: 2rem;
     z-index: 6;
     border-radius: 5px;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 
 .tafasir_buttons {
