@@ -16,7 +16,7 @@
     padding: 2rem;
     z-index: 6;
     border-radius: 5px;
-    /* overflow-y: scroll; */
+    overflow-y: hidden;
 }
 
 .tafasir_buttons {
@@ -24,6 +24,23 @@
     grid-template-columns: repeat(4,1fr);
     gap: 1rem;
     padding: 1rem 0
+}
+
+
+@media screen and (max-width: 768px) {
+    /* .tafasir_buttons {
+        grid-template-columns: repeat(2,1fr);
+    } */
+
+    .tafasir_buttons button {
+        font-size: 8px;
+        padding: .5rem .2rem;
+    }
+
+    .tafirModelConte {
+        width: 90%;
+        padding: 1rem;
+    }
 }
 
 .tafasir_buttons button {
