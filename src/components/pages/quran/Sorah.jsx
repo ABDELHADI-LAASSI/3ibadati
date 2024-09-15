@@ -1,4 +1,4 @@
-import { faBookOpenReader, faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faBookOpenReader, faPause, faPlay, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useEffect, useState, useRef } from 'react';
@@ -11,6 +11,7 @@ const Sorah = () => {
   const [sorah, setSorah] = useState([]);
   const [loadingSorah, setLoadingSorah] = useState(false);
   const { id } = useParams();
+  const [currentId , setCurrentId] = useState()
   const [loading, setLoading] = useState(false);
   const [currentAyah, setCurrentAyah] = useState(null);
   const [showTafsir, setShowTafsir] = useState(false);
@@ -23,14 +24,23 @@ const Sorah = () => {
 
   useEffect(() => {
     setCurrentSorah(+id);
+    setCurrentId(id);
   }, [id]);
 
   useEffect(() => {
+
+
+    console.log(currentId);
+    
+
+
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`https://quranapi.pages.dev/api/${id}.json`);
+        const res = await axios.get(`https://quranapi.pages.dev/api/${currentId}.json`);
         setSorahText(res.data);
+        console.log(sorahText);
+        
       } catch (error) {
         console.error('Error fetching Sorah data:', error);
       } finally {
@@ -39,7 +49,7 @@ const Sorah = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [currentId , id]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -93,17 +103,22 @@ const Sorah = () => {
   };
 
   const handleTafsirIconClick = (ayah) => {
+    // scroll to the top
+    
     setTafsirAya(ayah);
     setShowTafsir(true);
   };
 
   const toSorah = (id) => {
-    navigate(`/quran/${id}`);
+    
+    setCurrentId(id);
     setCurrentSorah(+id);
   }
 
-  if (loading || loadingSorah) {
-    return <div className='loading'>Loading...</div>;
+  if ( loadingSorah) {
+    return <div className='loading'>
+      <FontAwesomeIcon className='spinner' icon={faSpinner} spin />
+    </div>;
   }
 
   return (
@@ -127,8 +142,10 @@ const Sorah = () => {
           </div>
 
           <div className="surahInfos">
-            <div className='sorah_content'>
-              {sorahText.arabic1?.map((sorah, index) => (
+            <div className={loading ? 'sorah_content laodingSp' : 'sorah_content'}>
+              {
+              loading ? <FontAwesomeIcon className='spinner' icon={faSpinner} spin /> :
+              sorahText.arabic1?.map((sorah, index) => (
                 <div
                   key={index}
                   className={`sorah-item ${currentAyah === index ? 'active' : ''}`} // Conditionally add 'active' class
@@ -182,7 +199,7 @@ const Sorah = () => {
               <div className="suwar_sidebar">
                 <h2>السور</h2>
                 {sorah?.map((sorah_item, index) => (
-                  <Link className={index + 1 == +id ? 'active_sorah_link sorah' : 'sorah'} to={`/quran/${index + 1}`} key={index}>
+                  <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={index + 1 == +id ? 'active_sorah_link sorah' : 'sorah'} to={`/quran/${index + 1}`} key={index}>
                     {sorah_item.surahNameArabic}
                   </Link>
                 ))}

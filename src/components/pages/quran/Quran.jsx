@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './quran.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleChevronLeft, faCircleChevronRight, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCircleChevronLeft, faCircleChevronRight, faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -41,8 +41,10 @@ const Quran = () => {
     console.log(searchSorah);
   };
 
-  if (loading) {
-    return <div className='loading'>Loading...</div>;
+  if (loading ) {
+    return <div className='loading'>
+      <FontAwesomeIcon className='spinner' icon={faSpinner} spin />
+    </div>;
   }
 
   return (

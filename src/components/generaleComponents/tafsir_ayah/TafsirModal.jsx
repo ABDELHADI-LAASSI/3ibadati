@@ -51,7 +51,7 @@ const TafsirModal = () => {
                 <div className="tafasir_buttons">
                     <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafsir-ibn-kathir') }  className={tafsirId == 'ar-tafsir-ibn-kathir' ? 'activeTafsirButton' : ''} >  ابن كثير </button>
                     <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafsir-al-tabari') }  className={tafsirId == 'ar-tafsir-al-tabari' ? 'activeTafsirButton' : ''} >  الطبري </button>
-                    <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafsir-muyassar') }  className={tafsirId == 'ar-tafsir-muyassar' ? 'activeTafsirButton' : ''} > ال الميسر </button>
+                    <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafsir-muyassar') }  className={tafsirId == 'ar-tafsir-muyassar' ? 'activeTafsirButton' : ''} >  الميسر </button>
                     <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafseer-al-saddi') }  className={tafsirId == 'ar-tafseer-al-saddi' ? 'activeTafsirButton' : ''} >  السعدي </button>
                     <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafsir-al-wasit') }  className={tafsirId == 'ar-tafsir-al-wasit' ? 'activeTafsirButton' : ''} >  الوسيط لطنطاوي </button>
                     <button   disabled={loading ? true : false}  onClick={ () => handleTafsirId('ar-tafsir-al-baghawi') }  className={tafsirId == 'ar-tafsir-al-baghawi' ? 'activeTafsirButton' : ''} >  البغوي </button>
@@ -63,7 +63,7 @@ const TafsirModal = () => {
                     <h4> تفسير الآية </h4>
                     <p className='tafsir_p' >
                         {
-                            loading ? <FontAwesomeIcon className='spinner' icon={faSpinner} /> : tafsirText || 'Unable to load tafsir text'
+                            loading ? <FontAwesomeIcon className='spinner' icon={faSpinner} spin /> : tafsirText || 'Unable to load tafsir text'
                         }
                     </p>
                 </div>
