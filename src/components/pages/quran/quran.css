@@ -229,6 +229,16 @@
     cursor: pointer;
 }
 
+.search_mobile {
+    margin-bottom: 2rem;
+    display: none;
+}
+
+.search_mobile select {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
 
 @media screen and (max-width: 1280px) {
     .suwar_sidebar_container {
@@ -238,14 +248,9 @@
     .surahInfos {
         grid-template-columns: 1fr;
     }
+
+    .search_mobile {
+        display: block;
+    }
 }
 
-.search_mobile {
-    margin-bottom: 2rem;
-}
-
-.search_mobile select {
-    width: 100%;
-    padding: 0.5rem 1rem;
-    text-align: center;
-}
