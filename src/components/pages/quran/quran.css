@@ -261,3 +261,31 @@
     justify-content: center;
     color: var(--text-color);
 }
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.pagination button {
+    margin: 0 .5rem;
+    padding: .5rem .2rem;
+    border: none;
+    background-color: var(--container-color);
+    color: var(--title-color);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.pagination p {
+    color: var(--blue);
+}
+
+.pagination p span {
+    color: var(--grey);
+    font-weight: bold;
+}

@@ -1,0 +1,60 @@
+.books {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+
+.chapters {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2rem;
+}
+
+
+.chapters .chapter_link {
+    background-color: var(--container-color);
+    color: var(--text-color);
+    padding: .5rem 1rem;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .chapters {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media screen and (max-width: 446px) {
+    .chapters {
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+}
+
+
+@media screen and (max-width: 768px) {
+    .chapters {
+        grid-template-columns: 1fr;
+    }
+    
+}
+
+
+.hadits_content {
+    display: grid;
+    row-gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.hadits_content div {
+    background-color: var(--container-color);
+    padding: 1.5rem;
+}
+
+.hadits_content .hadit_text {
+    font-family: "Amiri Quran", serif;
+    font-size: 25px;
+    color: var(--text-color);
+}
+
+
