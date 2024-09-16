@@ -42,7 +42,7 @@ const Hadits = () => {
         }
     };
 
-    if (loading) {
+        if (loading) {
         return (
             <div className="loading">
                 <FontAwesomeIcon className='spinner' icon={faSpinner} spin />

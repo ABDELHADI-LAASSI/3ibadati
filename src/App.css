@@ -138,4 +138,7 @@ body {
   width: 100vw;
   color: var(--title-color);
   font-size: 5rem;
+  padding-right: 2rem;
 }
+
+

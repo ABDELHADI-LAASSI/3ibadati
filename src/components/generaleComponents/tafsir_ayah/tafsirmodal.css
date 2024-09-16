@@ -86,3 +86,11 @@
     background-color: var(--blue) !important;
     color: white !important;
 }
+
+
+
+@media screen and (max-width: 768px) {
+    .spinner {
+        left: 44%;
+    }
+}

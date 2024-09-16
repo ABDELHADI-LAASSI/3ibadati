@@ -49,6 +49,7 @@
 .hadits_content div {
     background-color: var(--container-color);
     padding: 1.5rem;
+    border-bottom: 3px solid var(--blue);
 }
 
 .hadits_content .hadit_text {
