@@ -62,8 +62,12 @@ const Hadits = () => {
                                 <FontAwesomeIcon className='spinner' icon={faSpinner} spin />
                             ) : (
                                 hadits?.map((hadit) => (
-                                    <div key={hadit.id}>
+                                    <div className='hadit_box' key={hadit.id}>
+                                        <div className='hadit_number'>
+                                            <span className='' > الحديث رقم :  {hadit.hadithNumber} </span>
+                                        </div>
                                         <p className='hadit_text'> {hadit.hadithArabic} </p>
+
                                     </div>
                                 ))
                             )

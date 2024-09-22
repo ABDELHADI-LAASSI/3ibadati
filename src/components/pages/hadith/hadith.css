@@ -46,7 +46,7 @@
     margin-bottom: 2rem;
 }
 
-.hadits_content div {
+.hadit_box {
     background-color: var(--container-color);
     padding: 1.5rem;
     border-bottom: 3px solid var(--blue);
@@ -59,3 +59,15 @@
 }
 
 
+.hadit_number {
+    font-size: 20px;
+    margin-bottom: 2rem;
+    
+}
+
+.hadit_number span {
+    font-family: "Amiri Quran", serif ;
+    font-weight: bold;
+    color: var(--title-color);
+    font-size: 25px;
+}

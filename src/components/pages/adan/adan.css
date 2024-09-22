@@ -2,3 +2,66 @@
     color: var(--text-color);
     text-align: center;
 }
+
+.time {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    column-gap: 1rem;
+    margin-top: 10rem;
+}
+
+.time .adan_time_container {
+    justify-self: center;
+    background-color: var(--container-color);
+    /* padding: 10px; */
+    text-align: center;
+    border-radius: 10px;
+}
+
+.time .adan_time_container img {
+    width: 100%;
+}
+
+.time .adan_time_container h5 {
+    /* font-family: "Amiri Quran", serif ;   */
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: var(--text-color);
+}
+
+.time .adan_time_container p {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+
+.select-hidden {
+    -webkit-appearance: none; /* Safari and Chrome */
+    -moz-appearance: none; /* Firefox */
+    appearance: none; /* Non-prefixed version, currently supported by Chrome, Opera, and Edge */
+    background: white; /* Remove background */
+    border: 1px solid var(--title-color); /* Optional: Add a border */
+    padding: 5px 10px;
+    font-size: 16px; /* Optional: Adjust font size */
+    margin: 0 1rem;
+    border: navajowhite;
+  background: var(--green);
+  color: white;
+  font-weight: bold;
+}
+
+.select-hidden:focus {
+    outline: none; /* Remove focus outline */
+}
+
+.selectors {
+    display: grid;
+    row-gap: 2rem;
+    margin-top: 3rem;
+}
+
+@media screen and (max-width:1024px) {
+    .time .adan_time_container h5 {
+        font-size: 1rem ;
+    }   
+}

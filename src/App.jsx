@@ -7,6 +7,8 @@ import Sorah from './components/pages/quran/Sorah';
 import Books from './components/pages/hadith/Books';
 import Chapter from './components/pages/hadith/Chapter';
 import Hadits from './components/pages/hadith/Hadits';
+import Doros from './components/pages/doros/Doros';
+import Contact from './components/pages/contact/Contact';
 
 function App() {
   return (
@@ -20,8 +22,8 @@ function App() {
           <Route path="hadith/book/:book" element={ <Chapter /> } />
           <Route path="hadith/book/:book/chapter/:chapter" element={ <Hadits /> } />
           <Route path="hadith" element={ <Books /> } />
-          <Route path="doros" element={<div className='center' > الدروس و الفتاوى </div>} />
-          <Route path="contact" element={<div className='center' > تواصل معنا </div>} />
+          <Route path="doros" element={ <Doros /> } />
+          <Route path="contact" element={ <Contact /> } />
 
           <Route path="*" element={<div> 404 </div>} />
         </Route>
