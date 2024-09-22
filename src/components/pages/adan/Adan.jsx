@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./adan.css"
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Adan = () => {
@@ -214,7 +214,7 @@ const Adan = () => {
                     {/* Display Arabic Date */}
 
                     {/* Display Prayer Times */}
-                    {!loading ? (
+                    
                         <div className="time_hadith">
                             <div className="timings">
                                 <div className="timings_container">
@@ -223,7 +223,10 @@ const Adan = () => {
                                             <h5>الفجر</h5>
                                             <div>
                                                 <img src="https://quranacademy.io/blog/wp-content/uploads/2017/08/rsz_sunset-100367_1280-min.jpg" alt="fajr" />
-                                                <p>{time.Fajr}</p>
+                                                
+                                                {
+                                                    loading ? <FontAwesomeIcon icon={faSpinner} spin />  :<p>{time.Fajr}</p>
+                                                }
                                             </div>
                                         </div>
 
@@ -231,7 +234,10 @@ const Adan = () => {
                                             <h5>الظهر</h5>
                                             <div>
                                                 <img src="https://quranacademy.io/blog/wp-content/uploads/2017/08/rsz_sunset-100367_1280-min.jpg" alt="dhuhr" />
-                                                <p>{time.Dhuhr}</p>
+                                                
+                                                {
+                                                    loading ? <FontAwesomeIcon icon={faSpinner} spin />  :<p>{time.Dhuhr}</p>
+                                                }
                                             </div>
                                         </div>
 
@@ -239,7 +245,10 @@ const Adan = () => {
                                             <h5>العصر</h5>
                                             <div>
                                                 <img src="https://quranacademy.io/blog/wp-content/uploads/2017/08/rsz_sunset-100367_1280-min.jpg" alt="asr" />
-                                                <p>{time.Asr}</p>
+                                                
+                                                {
+                                                    loading ? <FontAwesomeIcon icon={faSpinner} spin />  :<p>{time.Asr}</p>
+                                                }
                                             </div>
                                         </div>
 
@@ -247,7 +256,10 @@ const Adan = () => {
                                             <h5>المغرب</h5>
                                             <div>
                                                 <img src="https://quranacademy.io/blog/wp-content/uploads/2017/08/rsz_sunset-100367_1280-min.jpg" alt="maghrib" />
-                                                <p>{time.Maghrib}</p>
+                                                
+                                                {
+                                                    loading ? <FontAwesomeIcon  icon={faSpinner} spin />  :<p>{time.Maghrib}</p>
+                                                }
                                             </div>
                                         </div>
 
@@ -255,16 +267,15 @@ const Adan = () => {
                                             <h5>العشاء</h5>
                                             <div>
                                                 <img src="https://quranacademy.io/blog/wp-content/uploads/2017/08/rsz_sunset-100367_1280-min.jpg" alt="isha" />
-                                                <p>{time.Isha}</p>
+                                                {
+                                                    loading ? <FontAwesomeIcon icon={faSpinner} spin /> : <p>{time.Isha}</p>
+                                                }
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    ) : <div> 
-                            <FontAwesomeIcon style={{fontSize:"50px"}} className='spinner' icon={faSpinner} spin />
-                        </div>}
                 </div>
             </div>
         </div>

@@ -32,6 +32,7 @@
 .time .adan_time_container p {
     font-weight: bold;
     color: var(--text-color);
+    font-size: 25px;
 }
 
 
