@@ -52,7 +52,7 @@
     color: var(--title-color-dark);
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 768px) {
     .header {
         top: initial;
         bottom: 0;
@@ -119,5 +119,12 @@
     
     .nav__list {
         column-gap: 0;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .nav__link  {
+        font-size: 13px;
     }
 }

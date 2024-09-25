@@ -9,12 +9,13 @@ import Chapter from './components/pages/hadith/Chapter';
 import Hadits from './components/pages/hadith/Hadits';
 import Doros from './components/pages/doros/Doros';
 import Contact from './components/pages/contact/Contact';
+import Acceuill from './components/pages/acceuill/Acceuill';
 
 function App() {
   return (
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="" element={<div className='center' > الصفحة الرئيسية </div>} />
+          <Route path="" element={ <Acceuill /> } />
           <Route path="adan" element={ <Adan /> } />
           <Route path="quran" element={ <Quran /> } />
           <Route path='quran/:id' element={ <Sorah /> } />
