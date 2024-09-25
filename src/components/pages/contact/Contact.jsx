@@ -1,16 +1,29 @@
 import React from 'react'
 import './contact.css'
+import { toast, Toaster } from 'react-hot-toast';
 
 const Contact = () => {
+
+
+
+
+    const formSubmit = (e) => {
+        e.preventDefault();
+        
+        // Show a success toast notification
+        toast.error('لم يتم الارسال');
+    };
+
   return (
     <div className='contact'>
+        <Toaster position="top-left" />
         <div className="section">
             <div className="container">
                 <div className="title">اتصل بنا</div>
 
                 <div className="contact-container">
 
-                    <form className="contact-form">
+                    <form onSubmit={formSubmit} className="contact-form">
                         <div className="form-group">
                             <label htmlFor="name">الاسم</label>
                             <input type="text" id="name" placeholder="أدخل اسمك" />
