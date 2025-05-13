@@ -10,6 +10,9 @@ import Hadits from './components/pages/hadith/Hadits';
 import Doros from './components/pages/doros/Doros';
 import Contact from './components/pages/contact/Contact';
 import Acceuill from './components/pages/acceuill/Acceuill';
+import DarsKotob from './components/pages/doros/DarsKotob';
+import Choro7 from './components/pages/doros/Choroh';
+import CharhVideos from './components/pages/doros/CharhVideos';
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
           <Route path="hadith/book/:book/chapter/:chapter" element={ <Hadits /> } />
           <Route path="hadith" element={ <Books /> } />
           <Route path="doros" element={ <Doros /> } />
+          <Route path="doros/:darsId" element={ <DarsKotob /> } />
+          <Route path="doros/:darsId/kotob/:kitabId" element={<Choro7 />} />
+          <Route path="doros/:darsId/kotob/:kitabId/char7/:char7Id" element={<CharhVideos />} />
           <Route path="contact" element={ <Contact /> } />
 
           <Route path="*" element={<div> 404 </div>} />
