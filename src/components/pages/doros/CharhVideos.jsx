@@ -47,60 +47,75 @@ const CharhVideos = () => {
   };
 
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
-      {/* Sidebar */}
-      <div style={{ width: '250px', backgroundColor: '#f4f4f4', padding: '20px', overflowY: 'auto' }}>
-        <h3>Liste des vidéos</h3>
-        <ul style={{ listStyle: 'none', padding: 0 }}>
-          {videos.map((video, index) => (
-            <li
-              key={video.id}
-              onClick={() => handleSelect(index)}
-              style={{
-                cursor: 'pointer',
-                marginBottom: '10px',
-                fontWeight: index === currentIndex ? 'bold' : 'normal',
-                color: index === currentIndex ? '#007bff' : '#000',
-              }}
-            >
-              {video.title}
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className='char7_videos_page'>
+        
+      <div className="section">
 
-      {/* Main content */}
-      <div style={{ flexGrow: 1, padding: '20px', textAlign: 'center' }}>
-        {currentVideo ? (
-          <>
-            <h2>{currentVideo.title}</h2>
-            <iframe
-              key={currentVideo.id}
-              width="800"
-              height="450"
-              src={getAutoplayLink(currentVideo.link)}
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              title="Video Player"
-            ></iframe>
+        <div className="container">
 
-            <div style={{ marginTop: '20px' }}>
-              <button onClick={handlePrev} disabled={currentIndex === 0}>
-                ◀ Précédent
+          <h1 className="title_video"> المقطع رقم {videos && currentIndex + 1} : <span>{currentVideo && currentVideo.title} </span> </h1>
+          
+          <div className="videos_content">    
+
+          <div>
+            <ul>
+              {videos.map((video, index) => (
+                <li
+                  key={video.id}
+                  onClick={() => handleSelect(index)}
+                  style={{
+                    cursor: 'pointer',
+                    marginBottom: '10px',
+                    fontWeight: index === currentIndex ? 'bold' : 'normal',
+                    color: index === currentIndex ? '#007bff' : '#000',
+                  }}
+                >
+                  {video.title}
+                </li>
+              ))}
+            </ul>
+            
+          </div>
+
+          <div>
+            {currentVideo ? (
+              <>
+                <iframe
+                  key={currentVideo.id}
+                  width="800"
+                  height="450"
+                  src={getAutoplayLink(currentVideo.link)}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  title="Video Player"
+                ></iframe>
+              </>
+            ) : (
+              <p>تحميل...</p>
+            )}
+            <div className='buttons_video'>
+              <button onClick={handleNext} disabled={currentIndex === videos.length - 1}>
+                التالي
               </button>
               <span style={{ margin: '0 15px' }}>
                 {currentIndex + 1} / {videos.length}
               </span>
-              <button onClick={handleNext} disabled={currentIndex === videos.length - 1}>
-                Suivant ▶
+              <button onClick={handlePrev} disabled={currentIndex === 0}>
+                 السابق
               </button>
             </div>
-          </>
-        ) : (
-          <p>Chargement...</p>
-        )}
+          </div>
+          
+
+
+          </div>
+
+
+        </div>
+
       </div>
+
     </div>
   );
 };
