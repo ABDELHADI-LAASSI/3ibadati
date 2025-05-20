@@ -36,7 +36,7 @@
 
 .char7_videos_page {
     height: 900px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .videos_content {
@@ -54,7 +54,7 @@
 
 .videos_content ul {
     overflow-y: scroll;
-    height: 900px;
+    height: 700px;
 }
 
 .videos_content ul li {
@@ -87,4 +87,18 @@
     background-color: var(--blue);
     border-radius: 15px;
 
+}
+
+@media (max-width: 1124px) {
+    .videos_content {
+        grid-template-columns: 200px 1fr;
+    }
+}
+
+@media (max-width: 769px) {
+    .videos_content {
+        display: flex;
+        flex-direction: column-reverse;
+        row-gap: 2rem;
+    }
 }
