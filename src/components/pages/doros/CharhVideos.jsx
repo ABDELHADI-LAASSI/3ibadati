@@ -53,7 +53,7 @@ const CharhVideos = () => {
 
         <div className="container">
 
-          <h1 className="title_video"> المقطع رقم {videos && currentIndex + 1} : <span>{currentVideo && currentVideo.title} </span> </h1>
+          <h1 className="title"> المقطع رقم {videos && currentIndex + 1} : <span>{currentVideo && currentVideo.title} </span> </h1>
           
           <div className="videos_content">    
 

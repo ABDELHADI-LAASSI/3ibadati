@@ -59,7 +59,7 @@ const Choroh = () => {
 
         <div className="container">
 
-          <h1 className="title_char7">شروحات كتاب <span>{kitab}</span></h1>
+          <h1 className="title">شروحات كتاب <span>{kitab}</span></h1>
           <div className="quran_content">
             
 
