@@ -93,6 +93,10 @@
     .videos_content {
         grid-template-columns: 200px 1fr;
     }
+
+    .title_char7, .title_video {
+        font-size: 18px !important;
+    }
 }
 
 @media (max-width: 769px) {

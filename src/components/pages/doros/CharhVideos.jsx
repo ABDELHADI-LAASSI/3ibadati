@@ -86,7 +86,6 @@ const CharhVideos = () => {
                   height="450"
                   src={getAutoplayLink(currentVideo.link)}
                   frameBorder="0"
-                  allow="autoplay; encrypted-media"
                   allowFullScreen
                   title="Video Player"
                 ></iframe>
